@@ -10,11 +10,26 @@ public class CurrencyConverterGUI implements ActionListener
     private JLabel
 
     public void startScreen1()
-    {
-
+    {  
+        
+        
+        .setContentPane();
+        .setSize(600, 450);
+        .setVisible(true);
+        .setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        .setResizable(true);
     }
     public void startScreen2()
     {
+        
+        .setContentPane();
+        .setSize(600, 450);
+        .setVisible(true);
+        .setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        .setResizable(true);
+    }
+
+
         
     }
 }
