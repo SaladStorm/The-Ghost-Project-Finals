@@ -150,6 +150,7 @@ public class CurrencyConverterGUI implements ActionListener
         else if(e.getSource() == convertbtn)
         {
             System.out.println("Convert button has been pressed");
+
         }
         else if(e.getSource() == exitbtn)
         {
