@@ -5,10 +5,13 @@ public class Controller {
     public Controller(CurrencyConverterGUI gui, CurrencyRateService service) {
         this.gui = gui;
         this.service = service;
+
     }
 
-    private void convertCurrency() {
-        try {
+    private void convertCurrency()
+    {
+        try
+        {
             String base = gui.from.getSelectedItem().toString();
             String to = gui.to.getSelectedItem().toString();
 
@@ -18,4 +21,5 @@ public class Controller {
             error.printStackTrace();
         }
     }
+    
 }

@@ -6,9 +6,9 @@ import javax.swing.border.EmptyBorder;
 public class CurrencyConverterGUI implements ActionListener
 {
     private JFrame frame1, frame2;
-    private JPanel p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, mp1, mp2, panel;
+    private JPanel p8, p9, p10, p11, p12, p13, p14, mp2, panel;
     private JButton Startbtn, exitbtn, convertbtn, switchbtn;
-    private JLabel label1, label2, label3, dummylabel;
+    private JLabel label2, label3, dummylabel;
     public JComboBox from, to;
     private JTextField fromtf, totf;
     public void startScreen1()
@@ -138,24 +138,6 @@ public class CurrencyConverterGUI implements ActionListener
     @Override
     public void actionPerformed(ActionEvent e)
     {
-        if(e.getSource() == Startbtn)
-        {
-            frame1.setVisible(false);
-            frame2.setVisible(true);
-        }
-        else if (e.getSource() == switchbtn)
-        {
-            System.out.println("Switch button has been pressed");
-        }
-        else if(e.getSource() == convertbtn)
-        {
-            System.out.println("Convert button has been pressed");
-
-        }
-        else if(e.getSource() == exitbtn)
-        {
-            System.exit(0);
-        }
     }
 }
 
