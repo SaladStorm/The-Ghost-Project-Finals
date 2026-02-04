@@ -1,5 +1,18 @@
-import java.awt.*;
-import javax.swing.*;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.GridLayout;
+
+import javax.swing.BorderFactory;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 public class CurrencyConverterGUI
 {
@@ -7,7 +20,8 @@ public class CurrencyConverterGUI
     private JPanel p8, p9, p10, p11, p12, p13, p14, mp2, panel;
     public JButton Startbtn, exitbtn, convertbtn, switchbtn;
     private JLabel label1, label2, label3, dummylabel;
-    public JComboBox<String> from, to = new JComboBox<>();
+    public JComboBox<String> from = new JComboBox<>();
+    public JComboBox<String> to = new JComboBox<>();
     private JTextField fromtf, totf;
     public void startScreen1()
     {       
@@ -41,13 +55,17 @@ public class CurrencyConverterGUI
 
             frame1.add(panel);
             frame1.setVisible(true);
+
+            exitbtn = new JButton("Exit");
     }
 
     public void startScreen2()
     {   
+        frame1.setVisible(false);
         frame2 = new JFrame("Currency Converter");
         mp2 = new JPanel();
-        switchbtn = new JButton("⇆");        exitbtn = new JButton("Exit");
+        switchbtn = new JButton("⇆");        
+        
         convertbtn = new JButton("Convert");
         label2 = new JLabel("Convert from: ");
         label3 = new JLabel("Convert to: ");
@@ -99,10 +117,14 @@ public class CurrencyConverterGUI
         mp2.add(p14);
         frame2.setLocation(650, 300);
         frame2.setContentPane(mp2);
-        frame2.setSize(600, 350);
+        frame2.setSize(800, 400);
         frame2.setVisible(false);
         frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame2.setResizable(false);
+        frame2.pack();
+        frame2.setVisible(true);
+        totf.setEditable(false);
+        
     }
     public void setCombobox(String a)
     {
