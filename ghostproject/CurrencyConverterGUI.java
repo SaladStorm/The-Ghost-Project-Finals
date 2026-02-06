@@ -1,3 +1,4 @@
+package ghostproject;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -19,10 +20,10 @@ public class CurrencyConverterGUI
     public JFrame frame1, frame2;
     private JPanel p8, p9, p10, p11, p12, p13, p14, mp2, panel;
     public JButton Startbtn, exitbtn, convertbtn, switchbtn;
-    private JLabel label1, label2, label3, dummylabel;
+    public JLabel label1, label2, label3, dummylabel;
     public JComboBox<String> from = new JComboBox<>();
     public JComboBox<String> to = new JComboBox<>();
-    private JTextField fromtf, totf;
+    public JTextField fromtf, totf;
     public void startScreen1()
     {       
             frame1 = new JFrame("Philippine Peso Exchange System");
@@ -57,6 +58,7 @@ public class CurrencyConverterGUI
             frame1.setVisible(true);
 
             exitbtn = new JButton("Exit");
+            convertbtn = new JButton("Convert");
     }
 
     public void startScreen2()
@@ -66,7 +68,7 @@ public class CurrencyConverterGUI
         mp2 = new JPanel();
         switchbtn = new JButton("⇆");        
         
-        convertbtn = new JButton("Convert");
+        
         label2 = new JLabel("Convert from: ");
         label3 = new JLabel("Convert to: ");
 
@@ -99,8 +101,8 @@ public class CurrencyConverterGUI
         p11.add(fromtf);
         p11.add(from);
         p11.add(switchbtn);
-        p11.add(totf);
         p11.add(to);
+        p11.add(totf);
         p13.add(convertbtn);
         p13.add(exitbtn);
         p12.setLayout(new GridLayout(1,1));
