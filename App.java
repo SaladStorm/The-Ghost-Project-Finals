@@ -28,6 +28,16 @@ public class App {
 
         gui.Startbtn.addActionListener(e -> {
             gui.startScreen2();
+            gui.switchbtn.addActionListener(switchEvent -> {
+                Object fromSelected = gui.from.getSelectedItem();
+                Object toSelected = gui.to.getSelectedItem();
+                gui.from.setSelectedItem(toSelected);
+                gui.to.setSelectedItem(fromSelected);
+                String temp = gui.fromtf.getText();
+                gui.fromtf.setText(gui.totf.getText());
+                gui.totf.setText(temp);
+                gui.convertbtn.doClick();
+            });
         });
 
         gui.exitbtn.addActionListener(e -> {
