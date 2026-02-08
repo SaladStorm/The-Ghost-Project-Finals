@@ -13,14 +13,9 @@ public class CurrencyRateService
     HttpRequest request;
     HttpResponse<String> response;
     String base, to;
-    double amount;  
+    double amount;
 
-    public CurrencyRateService()
-    {
-      //
-    }
-
-    // Fetches the list of all currency codes to fill the jcomboboxes
+    // Fetches the list of all currencies.
     public String getAllCurrencies() {
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("https://api.frankfurter.dev/v1/currencies"))
@@ -28,12 +23,12 @@ public class CurrencyRateService
         try {
             return client.send(request, HttpResponse.BodyHandlers.ofString()).body();
         } catch (IOException | InterruptedException e) {
-            return null;
+            return "";
         }
     }
     
-    public String fetchRateJson(String base, String target) {
-        String url = "https://api.frankfurter.dev/v1/latest?base=" + base + "&symbols=" + target;
+    public String fetchRateJson() {
+        String url = "https://api.frankfurter.dev/v1/latest?base=" + base + "&symbols=" + to;
         HttpRequest request = HttpRequest.newBuilder().uri(URI.create(url)).build();
         try {
             return client.send(request, HttpResponse.BodyHandlers.ofString()).body();

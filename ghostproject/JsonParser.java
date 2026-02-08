@@ -1,6 +1,5 @@
 package ghostproject;
 import java.util.Set;
-
 import com.google.gson.*;
 
 public class JsonParser {
@@ -15,6 +14,7 @@ public class JsonParser {
         }
         return codes;
     }
+    
     public String getCurrencyName(String json, String code) {
         JsonObject obj = gson.fromJson(json, JsonObject.class);
         return obj.get(code).getAsString();

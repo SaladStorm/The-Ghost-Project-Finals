@@ -59,6 +59,7 @@ public class CurrencyConverterGUI
 
             exitbtn = new JButton("Exit");
             convertbtn = new JButton("Convert");
+            switchbtn = new JButton("⇆");
     }
 
     public void startScreen2()
@@ -66,7 +67,7 @@ public class CurrencyConverterGUI
         frame1.setVisible(false);
         frame2 = new JFrame("Currency Converter");
         mp2 = new JPanel();
-        switchbtn = new JButton("⇆");        
+                
         
         
         label2 = new JLabel("Convert from: ");
