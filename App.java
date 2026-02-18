@@ -2,7 +2,7 @@ import ghostproject.CurrencyConverterGUI;
 import ghostproject.CurrencyRateService;
 import ghostproject.JsonParser;
 
-public class App {
+public class App{
     public static CurrencyConverterGUI gui = new CurrencyConverterGUI();
     public static CurrencyRateService service = new CurrencyRateService();
     public static JsonParser parser = new JsonParser();
@@ -10,50 +10,63 @@ public class App {
     public static String currencyJson = service.getAllCurrencies();
     public static void main(String[] args)
     {
-        if (currencyJson.isEmpty()) {
+        if (currencyJson.isEmpty())
+        {
             System.err.println("Failed to fetch currency data");
             System.exit(1);
-        } else {
+        }
+        else
+        {
             currencyCodes = parser.getCurrencyCodes(currencyJson);
-            for (int e =0; e < currencyCodes.length; e++) {
-            gui.from.addItem(currencyCodes[e]);
-            gui.to.addItem(currencyCodes[e]);
+            for (int e =0; e < currencyCodes.length; e++)
+            {
+                gui.from.addItem(currencyCodes[e]);
+                gui.to.addItem(currencyCodes[e]);
             }
         }
 
         gui.startScreen1();
 
-        gui.Startbtn.addActionListener(ActionEvent -> {
+        gui.Startbtn.addActionListener(ActionEvent ->
+        {
             gui.startScreen2();
         });
 
+        gui.Clear.addActionListener(ActionEvent ->
+        {
+            gui.fromtf.setText("");
+            gui.totf.setText("");
+        });
 
-        gui.exitbtn.addActionListener(ActionEvent -> {
+        gui.exitbtn.addActionListener(ActionEvent ->
+        {
             System.exit(0);
         });
         
-        gui.convertbtn.addActionListener(ActionEvent -> {
+        gui.convertbtn.addActionListener(ActionEvent ->
+        {
         String input = gui.fromtf.getText();
-        boolean isInvalid = false;
+        boolean Validation = false;
+
         if (input.isEmpty())
         {
-            isInvalid = true;
+            Validation = true;
         }
         else
         {
-        for (int i = 0; i < input.length(); i++) {
+        for (int i = 0; i < input.length(); i++)
+            {
             char c = input.charAt(i);
-            // If it's not a digit and not a dot, it's a string
             if ((c < '0' || c > '9') && c != '.') {
-                isInvalid = true;
+                Validation = true;
             }
         }
     }
 
-    if (isInvalid)
+    if (Validation)
     {
-        gui.fromtf.setText("not a number");
-        gui.totf.setText("0.00");
+        gui.fromtf.setText("Not a number");
+        gui.totf.setText("");
     }
     else
     {
@@ -63,9 +76,8 @@ public class App {
     gui.frame2.revalidate();
     gui.frame2.repaint();
 });
-
-
-        gui.switchbtn.addActionListener(ActionEvent -> {
+        gui.switchbtn.addActionListener(ActionEvent ->
+        {
                 Object fromSelected = gui.from.getSelectedItem();
                 Object toSelected = gui.to.getSelectedItem();
                 gui.from.setSelectedItem(toSelected);
@@ -77,8 +89,8 @@ public class App {
         });
 
     }
-    public static void updateL() {
-        
+    public static void updateL()
+    {
         String from = gui.from.getSelectedItem().toString();
         String to = gui.to.getSelectedItem().toString();
         double amount = Double.parseDouble(gui.fromtf.getText());
@@ -91,7 +103,8 @@ public class App {
         gui.label2.setText("Convert from: " + fromcurrencyName);
         gui.label3.setText("Convert to: " + toCurrencyName);
         
-        if (from.equals(to)) {
+        if (from.equals(to))
+        {
             gui.totf.setText(Double.toString(amount));
             return;
         }

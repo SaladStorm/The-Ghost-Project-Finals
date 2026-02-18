@@ -23,8 +23,8 @@ public class CurrencyConverterGUI
 {
     public JFrame frame1, frame2;
     private JPanel p8, p9, p10, p11, p12, p13, p14, mp2, panel, historyp;
-    public JButton Startbtn, exitbtn, convertbtn, switchbtn, historybtn, historyexit;
-    public JLabel label1, label2, label3, dummylabel;
+    public JButton Startbtn, exitbtn, convertbtn, switchbtn, historybtn, historyexit, Clear;
+    public JLabel label1, label2, label3, dummylabel, label4;
     public JComboBox<String> from = new JComboBox<>();
     public JComboBox<String> to = new JComboBox<>();
     public JTextField fromtf, totf;
@@ -35,7 +35,7 @@ public class CurrencyConverterGUI
     private final int HISTORY_CAP = 10;
     public void startScreen1()
     {       
-            frame1 = new JFrame("Philippine Peso Exchange System");
+            frame1 = new JFrame("Philippine Currency Exchange System");
             frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame1.setSize(600, 350);
             frame1.setLocationRelativeTo(null);
@@ -45,7 +45,7 @@ public class CurrencyConverterGUI
             panel.setBackground(Color.WHITE);
             panel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.BLACK, 2),new EmptyBorder(40, 40, 40, 40)));
 
-            JLabel title = new JLabel("Philippine Peso Exchange System");
+            JLabel title = new JLabel("Philippine Currency Exchange System");
             title.setAlignmentX(Component.CENTER_ALIGNMENT);
             title.setFont(new Font("SansSeriff", Font.PLAIN, 22));
 
@@ -70,6 +70,7 @@ public class CurrencyConverterGUI
                 convertbtn = new JButton("Convert");
                 switchbtn = new JButton("⇆");
                 historybtn = new JButton("History");
+                Clear = new JButton("Clear");
     }
 
     public void startScreen2()
@@ -78,10 +79,9 @@ public class CurrencyConverterGUI
         frame2 = new JFrame("Currency Converter");
         mp2 = new JPanel();
                 
-        
-        
         label2 = new JLabel("Convert from: ");
         label3 = new JLabel("Convert to: ");
+        label4 = new JLabel("Updates are made every 24 hours, last updated: 4:00 PM PHT");
 
         //panels 8 to 14
         p8 = new JPanel();
@@ -93,15 +93,12 @@ public class CurrencyConverterGUI
         p14 = new JPanel();
         mp2 = new JPanel();
 
-        //Combo Boxes
-        //from = new JComboBox<>();
-        //to = new JComboBox<>();
         fromtf = new JTextField("");
         totf = new JTextField("");
         dummylabel = new JLabel("");
 
-
         p8.setLayout(new GridLayout(1,1));
+        p8.add(label4);
         p9.setLayout(new GridLayout(1,1));
         p10.setLayout(new GridLayout(1,5));
         p10.add(label2);
@@ -114,10 +111,11 @@ public class CurrencyConverterGUI
         p11.add(to);
         p11.add(totf);
         p13.add(convertbtn);
-        p13.add(exitbtn);
+        p13.add(Clear);
         p13.add(historybtn);
+        p13.add(exitbtn);
         p12.setLayout(new GridLayout(1,1));
-        p13.setLayout(new GridLayout(1,3));
+        p13.setLayout(new GridLayout(1,4));
         p14.setLayout(new GridLayout(1,1));
 
         mp2.setLayout(new GridLayout(7,5));
